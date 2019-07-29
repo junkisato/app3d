@@ -1,0 +1,52 @@
+<header class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">お客様管理表</a>
+  <div class="navbar-collapse justify-content-end">
+      <button class="btn btn-primary" href="#">戻る</button>
+      <button class="btn btn-primary" type="submit">ログアウト</button>
+  </div>
+</header>
+<h1 class="text-center h1">登録フォーム</h1>
+  <%= bootstrap_form_for(@patient) do |f| %>
+    <div class="border col-6 new-date">
+      <br>
+      <div class="row">
+        <div class="col-md">
+          <%= f.text_field :name, label: "氏名", placeholder: 'フルネームを入力してください' %>
+          <%= f.text_field :kana_name, label: "フリガナ", placeholder: 'カタカナで入力してください' %>
+          <%= f.date_select :birthday, label: "生年月日",start_year: 1940, end_year: Time.current.year, use_month_numbers: true %>
+          <%= f.text_area :chief_complaint,label: "主訴", placeholder: '痛みや悩みをお書きください' %>
+          <%= f.label :gender, "性別" %>
+          <div class="form-inline">
+            <%= f.radio_button :gender, 1 %>
+            <%= f.label :gender_1, "男" %>
+            <%= f.radio_button :gender, 2 %>
+            <%= f.label :gender_2, "女" %>
+          </div>
+          <br>
+          <%= f.select :responsible_id, @responsibles.map{|t| [t.name,t.id]} ,label: "施術担当者" %>
+        </div>
+      </div>
+      <br>
+      <div class="row justify-content-around">
+        <div class="col-5">
+          <button type="button" class="btn btn-outline-secondary btn-block">閉じる</button>
+        </div>
+        <div class="col-5">
+          <%= f.submit "登録", type:"submit", class:"btn btn-outline-primary btn-block" %>
+        </div>
+      </div>
+      <div class="col-1">
+      </div>
+      <br>
+    </div>
+  <% end %>
+</div>
+<footer class="page-footer font-small stylish-color-dark pt-4 bg-dark mb-3 mt-3 navbar">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="http://sample-test.sub.jp/al/"> altura.inc</a>
+  </div>
+</footer>
