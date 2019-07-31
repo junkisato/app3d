@@ -15,6 +15,10 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require OrbitControls
+//= require GLTFLoader
+//= require OBJLoader
+//= require MTLLoader
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require_tree .
