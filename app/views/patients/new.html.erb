@@ -26,7 +26,13 @@
             <%= f.label :gender_2, "女" %>
           </div>
           <br>
-          <%= f.select :responsible_id, @responsibles.map{|t| [t.name,t.id]} ,label: "施術担当者" %>
+          <%# <%= f.select :responsible_id, @responsibles.map{|t| [t.name,t.id]} ,label: "施術担当者" %>
+          <select class="form-control">
+            <option>ALTURA</option>
+            <option>佐藤</option>
+            <option>中島</option>
+            <option>森本</option>
+          </select>
         </div>
       </div>
       <br>

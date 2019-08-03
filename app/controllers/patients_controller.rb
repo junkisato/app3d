@@ -1,8 +1,14 @@
 class PatientsController < ApplicationController
   
   def index
+    @patients = Patient.where("kana_name LIKE(?)", "#{params[:keyword]}%")
+    respond_to do |format|
+    format.html
+    format.json
+    end
     @responsibles = Responsible.all
   end
+    
 
   def new
     @patient = Patient.new
